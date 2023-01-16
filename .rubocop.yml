@@ -1,5 +1,6 @@
 require:
   - rubocop-rails
+  - rubocop-performance
 
 inherit_from: .rubocop_todo.yml
 
@@ -7,5 +8,6 @@ AllCops:
   TargetRubyVersion: 3.2.0
   TargetRailsVersion: 7.0.4
   NewCops: enable
-  Exclude:
-    - "vendor/**/*" # rubocop config/default.yml
+
+Style/Documentation:
+  Enabled: false
