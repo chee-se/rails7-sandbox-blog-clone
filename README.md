@@ -1,49 +1,24 @@
-# docker-rails-template
+# README
 
-for create new repository from this template.
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-## Versions(.env file)
+Things you may want to cover:
 
-- Docker Compose 3.9
-- ruby 3.2
-- Ruby on Rails 7.0
-- MySQL 8.0
+* Ruby version
 
-## Bootstrap
+* System dependencies
 
-1. edit versions
+* Configuration
 
-```env
-.env
+* Database creation
 
-COMPOSE_RUBY_VERSION=3.2.0
-COMPOSE_ALPINE_VERSION=3.17 # 余計なイメージのダウンロードを避けるため、ALPINEのバージョンをそろえて高速化する
-COMPOSE_MYSQL_VERSION=8.0.31
-```
+* Database initialization
 
-```gemfile
-Gemfile
+* How to run the test suite
 
-ruby '3.2.0'
-gem 'rails', '~> 7.0.4'
-```
+* Services (job queues, cache servers, search engines, etc.)
 
-2. execute command below and create rails project
+* Deployment instructions
 
-```shell
-# create rails project
-docker-compose run --rm --no-deps app bundle exec rails new . -d mysql
-```
-
-if you clone existing rails project by cloning repository
-
-```shell
-# create credentials
-docker-compose run --rm --no-deps -e EDITOR="vi" app bundle exec rails bin/rails credentials:edit
-```
-
-## Boot server
-
-```shell
-docker-compose up -d
-```
+* ...
