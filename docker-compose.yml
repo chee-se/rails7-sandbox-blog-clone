@@ -1,0 +1,48 @@
+version: "3.9"
+
+services:
+  app:
+    build:
+      context: .
+      args:
+        - RUBY_VERSION=${COMPOSE_RUBY_VERSION} # defined in .env file
+        - ALPINE_VERSION=${COMPOSE_ALPINE_VERSION}
+    command: sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -b 0.0.0.0" # 最初はコマンド引数で rails new に上書する。
+    environment:
+      - DATABASE_URL=mysql2://app_root:password@db:3306/app_local # database.yml を無視して接続する
+    volumes:
+      - .:/app:cached # ホストへの反映の遅延を許容して高速化する
+    volumes_from:
+      - datastore
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+
+  db:
+    image: mysql:${COMPOSE_MYSQL_VERSION}
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      - MYSQL_DATABASE=app_local
+      - MYSQL_USER=app_root
+      - MYSQL_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=password
+    ports:
+      - "3306:3306" # DBクライアント接続用にホストにも公開しておく
+    volumes_from:
+      - datastore
+
+  datastore:
+    image: alpine:${COMPOSE_ALPINE_VERSION}
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - vendor-bundle:/app/vendor/bundle
+      - bundle:/app/.bundle
+
+volumes:
+  mysql-data:
+    driver: local
+  vendor-bundle:
+    driver: local
+  bundle:
+    driver: local
