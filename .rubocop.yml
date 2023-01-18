@@ -1,5 +1,7 @@
 require:
   - rubocop-rails
+  - rubocop-rspec
+  - rubocop-performance
 
 inherit_from: .rubocop_todo.yml
 
@@ -10,3 +12,5 @@ AllCops:
   Exclude:
     - "db/schema.rb"
     - "vendor/**/*" # rubocop config/default.yml
+Style/Documentation:
+  Enabled: false
