@@ -17,6 +17,11 @@
   </div>
 
   <div>
+    <%= form.label :content, style: "display: block" %>
+    <%= form.rich_text_area  :content %>
+  </div>
+
+  <div>
     <%= form.label :posted_at, style: "display: block" %>
     <%= form.datetime_field :posted_at %>
   </div>

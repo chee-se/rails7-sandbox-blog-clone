@@ -21,6 +21,7 @@ RUN echo 'install: --no-document' > ~/.gemrc && \
         build-base \
         mysql-dev \
         tzdata \
+        vips-dev \
         git && \
     rm -rf /usr/lib/libmysqld* && \
     rm -rf /usr/bin/mysql* && \
