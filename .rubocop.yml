@@ -10,17 +10,22 @@ AllCops:
   TargetRailsVersion: 7.0.4
   NewCops: enable
   Exclude:
+    - "bin/bundle"
+    - "bin/importmap"
+    - "bin/rails"
+    - "bin/rake"
     - "db/schema.rb"
     - "vendor/**/*" # rubocop config/default.yml
-Style/ClassAndModuleChildren:
-  Enabled: false
+Layout/LineLength:
+  Exclude:
+    - config/initializers/devise.rb
 Style/Documentation:
   Enabled: false
 Metrics/AbcSize:
   Max: 20
   Exclude:
     - "db/migrate/*"
-
 Metrics/MethodLength:
+  Max: 30
   Exclude:
     - "db/migrate/*"

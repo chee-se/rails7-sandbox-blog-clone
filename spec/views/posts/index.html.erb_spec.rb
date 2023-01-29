@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe 'posts/index', type: :view do
+RSpec.describe 'posts/index' do
   before do
     assign(:posts, [
              Post.create!(

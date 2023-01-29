@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe 'users/new', type: :view do
+RSpec.describe 'users/new' do
   before do
     assign(:user, User.new)
   end

@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe 'posts/new', type: :view do
+RSpec.describe 'posts/new' do
   before do
     assign(:post, Post.new(
                     title: 'MyString'

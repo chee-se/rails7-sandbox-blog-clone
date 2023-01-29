@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe 'users/index', type: :view do
+RSpec.describe 'users/index' do
   before do
     assign(:users, [
              User.create!,

@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe 'posts/edit', type: :view do
+RSpec.describe 'posts/edit' do
   let(:post) do
     Post.create!(
       title: 'MyString'
