@@ -1,10 +1,14 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  devise_for :users
+  draw :devise
   resources :posts
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :users
+  resources :admins
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  namespace :admin do
+    resources :users
+  end
+
+  root 'posts#index'
 end

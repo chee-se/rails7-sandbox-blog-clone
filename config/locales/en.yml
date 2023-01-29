@@ -30,4 +30,13 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  flash:
+    notice: "%{model} was successfully %{action}."
+  model:
+    post: "Post"
+    user: "User"
+    admin: "Admin"
+  action:
+    create: "created"
+    update: "updated"
+    destroy: "destroyed"

@@ -12,5 +12,15 @@ AllCops:
   Exclude:
     - "db/schema.rb"
     - "vendor/**/*" # rubocop config/default.yml
+Style/ClassAndModuleChildren:
+  Enabled: false
 Style/Documentation:
   Enabled: false
+Metrics/AbcSize:
+  Max: 20
+  Exclude:
+    - "db/migrate/*"
+
+Metrics/MethodLength:
+  Exclude:
+    - "db/migrate/*"
